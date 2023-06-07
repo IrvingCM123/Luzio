@@ -86,7 +86,7 @@ export class IsesionComponent implements OnInit {
     console.log(this.loginStatus)
     if (loginSuccessful && this.loginStatus == true) {
       console.log('Datos: ', this.mandar.getUsuario());
-      this.router.navigate(['/test']);
+      this.router.navigate(['/perfil']);
     } else {
       console.log("Datos Invalidos")
     }

@@ -15,6 +15,7 @@ export class MandarService{
 
     setUsuario(valor: any) {
       this.Id_Usuario = valor;
+      console.log("Guarda", valor)
     }
 
     setEstres(valor: any){
