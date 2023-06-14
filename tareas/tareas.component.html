@@ -12,14 +12,13 @@
   <main class="container">
     <article class="actividades">
 
-        {{Array}}
         <div class="tareas" *ngFor="let ac of actividadesMostrar; let i = index" ngModel="actualizarIndex()">
 
             <div *ngIf="i % 2 == 0">
                 <button (click)="actualizar(ac.id_actIMC)">
                     <img src="{{ ac.imagen_actIMC }}" class="button-imagen" />
                     <p class="tareas_letra-titulo">
-                        Reto Ejercicio {{ i + 1 }} | {{ ac.nombre_actIMC }}
+                        Reto Ejercicio {{ i + 1 }} | {{ac.nombre_actIMC}} + {{ac.id_actIMC}}
                     </p>
                     <p class="tarea_letra-descripcion">{{ ac.descripcion_actIMC }}</p>
                 </button>

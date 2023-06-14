@@ -4,7 +4,7 @@ import { Injectable } from "@angular/core";
     providedIn: 'root'
 })
 export class MandarService{
-    Nivel_IMC: string= 'Normal';
+    Nivel_IMC: string= 'bajo';
     Nivel_Estres: string='Bajo';
     Id_Usuario: string="";
 

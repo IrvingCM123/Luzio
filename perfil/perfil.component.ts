@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MandarService } from '../tareas/MandarDatos.service';
 import { HttpClient } from '@angular/common/http';
+import { CacheService } from '../cache/cache.service';
 
 @Component({
   selector: 'app-perfil',
@@ -10,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 export class PerfilComponent implements OnInit{
 
   constructor(
-    private mandar: MandarService,
+    private mandar: CacheService,
     private http: HttpClient
   ) {}
 
@@ -27,7 +28,7 @@ export class PerfilComponent implements OnInit{
   response$: any;
 
   async ngOnInit() {
-    this.ID_Usuario = await this.mandar.getUsuario();
+    this.ID_Usuario = await this.mandar.obtener_DatoLocal("Usuario");
     this.ObtenerDatos(this.ID_Usuario);
   }
 
@@ -37,6 +38,7 @@ export class PerfilComponent implements OnInit{
     this.response$ = await this.http.get(url);
     this.response$.subscribe(
       (datos: any) => {
+        console.log(datos)
         this.Nombre_Usuario = datos.nombre_usuario;
         this.Apellido_Usuario = datos.apellidos_usuario;
         this.Correo_Usuario = datos.correo_usuario;
